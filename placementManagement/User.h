@@ -9,14 +9,23 @@ class User{
   protected:
 
   static int totalUsers;
-  int userId; //How to allocate User ID?? //static variable count increment in constructor
-  string userEmailID; // put checks for email id
-  long userContactNumber; // put checks for phone number
+  int userId; 
+  string userEmailID;
+  long userContactNumber;
   
   public:
   
   string userName;
   Gender gender;
+
+  User(string email, long ContactNumber, Gender gender, string name){
+
+    totalUsers++;
+    this->userId= totalUsers;
+    this->userContactNumber= ContactNumber;
+    this->gender= gender;
+    this->userName= name;
+  }
 
   void change_contactnum(long user_new_num){
     this->userContactNumber=user_new_num;
@@ -24,13 +33,10 @@ class User{
   }
 
   void print_details(){
-    cout<<"UserID: "<<userID<<endl;
+    cout<<"UserID: "<<userId<<endl;
     cout<<"UserName: "<<userName<<endl;
     cout<<"Email: "<<userEmailID<<endl;
     cout<<"ContactNumber: "<<userContactNumber<<endl;
-
-
-    
   }
 
 };

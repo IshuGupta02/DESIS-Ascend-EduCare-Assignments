@@ -1,45 +1,22 @@
 #include<bits/stdc++.h>
 #include<string>
-#include "../User.h"
-#include "../interview/interview.h"
+#include "../interview/application.h"
+#include "recruiter.h"
 using namespace std;
 
-enum TypeOfInterviewer{Technical,HR};
-
-class Recruiter : protected User {
-  long companyId; 
-  // vector<Application> applications;
-  vector<Interview> interviews;
-  
-  public:
-
-  string companyName;
-  TypeOfInterviewer typeOfInterviewer;
-  
-  Recruiter(){
-    setDataMembers();
-    
-  }
-
-  void setDataMembers();
-
-  void show_interviews(){
-    for(int i=0;i<interviews.size();i++){
-      cout<<"interview "<<i<<endl;
-      interviews[i].print();
-      
-    }
-  }
-  
-};
-
-void Recruiter::setDataMembers(){
-
-}
 class Company{
+  long companyId;
   string company_name;
   vector<Recruiter> rec;
   vector<Application> applications;
+  Company(long companyId, string name){
+    this->companyId=companyId;
+    this->company_name=name;
+    
+
+  }
+
+  public:
 
   void print(){
     cout<<company_name<<endl;
